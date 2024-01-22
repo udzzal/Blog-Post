@@ -1,0 +1,56 @@
+{% extends "base.html" %}
+
+{% load static %}
+    
+ {% block titel %} Add blog{% endblock titel %}
+
+ {% block content %}
+    
+ <section>
+    <div class="container">
+        <div class="row-py-5 justify-content-center">
+            <div class="col-md-8">
+                <form action="" method="POST" enctype="multipart/form-data">
+                    {{form.media}}
+                    {% csrf_token %}
+                    <div class="form-group">
+                        <label for="titel">Blog Title</label>
+                        <input class="form-control" type="text" name="titel">
+                        <p class="text-danger py-1">{{form.titel.errors}}</p>
+                    </div>
+                    <div class="form-group">
+                        <label for="titel">Blog Category</label>
+                        <select class="form-control" name="catagory" id="category_id">
+                        {% for category in catagory %}
+                            <option value="{{category.id}}">{{category.titel}}</option>
+                        {% endfor %}
+                        <p class="text-danger py-1">{{form.catagory.errors}}</p>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="titel">Description</label>
+                        <textarea class="form-control" name="description" id="" cols="30" rows="10" placeholder="enter description values"></textarea>
+                        <p class="text-danger py-1">{{form.description.errors}}</p>
+                    </div>
+                    <div class="form-group">
+                        <label for="titel">Blog Banner</label>
+                        <input class="form-control" class="form-control" type="file" name="banner">
+                        <p class="text-danger py-1">{{form.banner.errors}}</p>
+                    </div>
+                    <div class="form-group">
+                        <label for="titel">Tags</label>
+                        <textarea class="form-control" name="tags" id="" cols="30" rows="10" placeholder="enter comma seprrated values"></textarea>
+                        <p class="text-danger py-1">{{form.tags.errors}}</p> 
+                    </div>
+                    <div class="form-group my-2">
+                        <button type="submit" class="btn btn-primary btn-block">Add</button>
+                    </div>
+                </form>
+                
+            </div>
+        </div>
+    </div>
+ </section>
+ 
+ {% endblock content %}
+

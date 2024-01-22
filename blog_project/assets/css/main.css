@@ -1,0 +1,33 @@
+
+.blog-posts .submit-comment textarea{
+    text-transform:none !important;
+}
+
+
+.fa-heart {
+    color: red !important;
+}
+
+
+.empty-heart {
+    color: #cdcdcdcd !important;
+}
+.errorlist{
+    color: red !important;
+    padding-bottom: 10px !important;
+
+}
+.contact-us .contact-form input{
+    margin-bottom: 10px !important;
+    text-transform: none !important;
+}
+
+.profile-picture{
+    max-width: 100%;
+    width: 180px;
+    height: 180px;
+}
+
+.btn-primary{
+    background-color:  #fb7d2a!important;
+}

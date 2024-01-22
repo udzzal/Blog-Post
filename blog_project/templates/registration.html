@@ -1,0 +1,74 @@
+{% extends "base.html" %}
+
+{% load static %}
+
+{% block titel %}Registration{% endblock titel %}
+
+{% block content %}
+
+<section class="contact-us">
+    <div class="container">
+      <div class="row">
+      
+        <div class="col-lg-12">
+          <div class="down-contact">
+            <div class="row">
+              <div class="col-lg-8">
+                <div class="sidebar-item contact-form">
+                  <div class="sidebar-heading">
+                    <h2>Registration Page </h2>
+                  </div>
+                  <div class="content">
+                    <form id="contact" action="" method="post" novalidate>
+                      {% csrf_token %}
+                      <div class="row">
+                        <div class="col-md-12 col-sm-12">
+                          <fieldset>
+                            <input name="username"{% if forms.is_bound %}value="{{forms.username.value}}"{% endif %} type="text" id="name" placeholder="Your name" >
+                              <p class="py-1 text-danger errors">{{forms.username.errors}}</p>
+                          </fieldset>
+                        </div>
+                        <div class="col-md-12 col-sm-12">
+                            <fieldset>
+                              <input name="email"{% if forms.is_bound %}value="{{forms.username.value}}"{% endif %}  type="text" id="email" placeholder="Email" >
+                              <p class="py-1 text-danger errors">{{forms.email.errors}}</p>
+                            </fieldset>
+                          </div>
+
+                        <div class="col-md-12 col-sm-12">
+                          <fieldset>
+                            <input name="password"{% if forms.is_bound %}value="{{forms.username.value}}"{% endif %}  type="password" id="password" placeholder="Your password" >
+                            <p class="py-1 text-danger errors">{{forms.password.errors}}</p>
+                          </fieldset>
+                        </div>
+                        <div class="col-md-12 col-sm-12">
+                            <fieldset>
+                              <input name="re-password"{% if forms.is_bound %}value="{{forms.username.value}}"{% endif %}  type="password" id="password" placeholder="Confirm password" >
+                              <p class="py-1 text-danger errors m-2">{{forms.password.errors}}</p>
+                            </fieldset>
+                          </div>
+                        
+                        <div class="col-lg-12">
+                          <fieldset>
+
+                            <button type="submit" id="form-submit" class="main-button">Sing up</button>
+                           
+                          </fieldset>
+                        </div>
+                      </div>
+                    </form>
+                  </div>
+                </div>
+              </div>
+              
+            </div>
+          </div>
+        </div>
+        
+       
+        
+      </div>
+    </div>
+  </section>
+
+{% endblock content %}

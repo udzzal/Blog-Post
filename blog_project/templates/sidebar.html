@@ -1,0 +1,66 @@
+{% load static %}
+
+<div class="col-lg-4">
+    <div class="sidebar">
+      <div class="row">
+        <div class="col-lg-12">
+          <div class="sidebar-item search">
+            <form id="search_form" name="" method="GET" action="{% url 'sarch_blog' %}">
+              <input type="text" name="sarch" class="searchText" placeholder="type to search..." >
+            </form>
+          </div>
+        </div>
+        <div class="col-lg-12">
+          <div class="sidebar-item recent-posts">
+            <div class="sidebar-heading">
+              <h2>Recent Posts</h2>
+            </div>
+            <div class="content">
+              <ul>
+
+                {% for blog in blogs|slice:"5" %}
+
+                <li><a href="javascripts:void(0);"><h5>{{ blog.description|truncatewords:"10"}}</h5>
+
+                  <span>{{blog.cteated_date}}</span>
+                </a></li>
+                {% endfor %}
+              
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-12">
+          <div class="sidebar-item categories">
+            <div class="sidebar-heading">
+              <h2>Categories</h2>
+            </div>
+            <div class="content">
+              <ul>
+                {% for catagorys in catagory %}
+                <li><a href="{% url "catagory_blog" catagorys.slug %}"> {{ catagorys.titel }}</a></li>
+               {% endfor%}
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-12">
+          <div class="sidebar-item tags">
+            <div class="sidebar-heading">
+              <h2>Tag Clouds</h2>
+            </div>
+            <div class="content">
+              <ul>
+                {% for tags in tag %}
+                <li><a href="{% url "tag-blog" tags.slug %}">{{ tags.titel }}</a></li>
+                {% endfor %}
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  
